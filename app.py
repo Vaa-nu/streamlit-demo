@@ -1,6 +1,7 @@
-import streamlit as st
-st.title("Hello Streamlit ")
-st.write("This is a simple app deployed on **Streamlit Community cloud.")
-name = st.text_input("Enter your name:")
-if st.button("Say Hello"):
-     st.success(f"Hello {name}, welcome to Streamlit!")
+from flask import Flask
+app = Flask(__name__)
+@app.route("/")
+def home():
+  return "Hello, Flask on Render! "
+if __name__ == "__main__":
+  app.run(host="0.0.0.0", port=5000)
